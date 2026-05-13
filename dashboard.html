@@ -12,6 +12,12 @@
 </head>
 <body class="dashboard-wrapper">
 
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader"></div>
+        <div class="loader-text">Loading Dashboard...</div>
+    </div>
+
 <!-- Navbar -->
 <nav class="navbar navbar-dark sticky-top shadow-sm dashboard-navbar px-3 px-md-4" style="height: 70px;">
     <div class="container-fluid d-flex align-items-center justify-content-between p-0">
@@ -88,11 +94,25 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script>
     AOS.init();
 </script>
-<script src="js/dashboard.js"></script>
+<script>
+    window.addEventListener('load', function() {
+        setTimeout(function() {
+            const preloader = document.getElementById('preloader');
+            if(preloader) {
+                preloader.style.opacity = '0';
+                setTimeout(() => {
+                    preloader.style.display = 'none';
+                }, 500);
+            }
+        }, 2000);
+    });
+</script>
+<script src="dashboard.js"></script>
 
 </body>
 </html>
