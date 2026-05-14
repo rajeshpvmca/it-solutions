@@ -34,7 +34,6 @@ function loadMenuByRole() {
 
     if (role === "Admin") {
         menuHtml += `
-            <li class="nav-item"><a href="#" class="nav-link sidebar-link" data-content-type="users" onclick="showContent('users')"><i class="fa-solid fa-users-gear"></i> User Management</a></li>
             <li class="nav-item"><a href="#" class="nav-link sidebar-link" data-content-type="analytics" onclick="showContent('analytics')"><i class="fa-solid fa-chart-line"></i> Analytics</a></li>
         `;
     } else if (role === "Developer") {
@@ -166,13 +165,39 @@ function showContent(type){
     }
 
     else if(type === "profile"){
-
         contentBox.innerHTML = `
-            <div class="card-body">
-                <h2>User Profile</h2>
-                <p><strong>Name:</strong> ${loggedInUser.name}</p>
-                <p><strong>Email:</strong> ${loggedInUser.email}</p>
-                <p><strong>Role:</strong> ${loggedInUser.role}</p>
+            <div class="card-body" data-aos="fade-up">
+                <div class="row align-items-center mb-4">
+                    <div class="col-md-auto text-center mb-3 mb-md-0">
+                        <div class="position-relative d-inline-block">
+                            <img src="assets/img/logo.webp" class="rounded-circle border p-1 bg-white shadow-sm" style="width: 120px; height: 120px; object-fit: contain;" alt="Profile">
+                            <span class="position-absolute bottom-0 end-0 badge rounded-pill bg-success border border-2 border-white p-2"><span class="visually-hidden">Online</span></span>
+                        </div>
+                    </div>
+                    <div class="col-md ps-md-4">
+                        <h2 class="fw-bold mb-1">${loggedInUser.name}</h2>
+                        <p class="text-muted mb-2"><i class="fa-solid fa-envelope me-2"></i>${loggedInUser.email}</p>
+                        <span class="badge bg-soft-primary text-primary border px-3 py-2"><i class="fa-solid fa-shield-halved me-2"></i>System Administrator</span>
+                    </div>
+                </div>
+                <hr>
+                <div class="row g-4 mt-2">
+                    <div class="col-md-6">
+                        <h5 class="fw-bold mb-3">Account Details</h5>
+                        <div class="list-group list-group-flush">
+                            <div class="list-group-item d-flex justify-content-between px-0"><span>Employee ID</span><span class="fw-semibold">#ADM-4492</span></div>
+                            <div class="list-group-item d-flex justify-content-between px-0"><span>Join Date</span><span class="fw-semibold">March 12, 2024</span></div>
+                            <div class="list-group-item d-flex justify-content-between px-0"><span>Access Level</span><span class="fw-semibold text-danger">Root / Superuser</span></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h5 class="fw-bold mb-3">Recent Activity</h5>
+                        <div class="small">
+                            <p class="mb-2"><i class="fa-solid fa-clock-rotate-left me-2 text-primary"></i> Logged in from 192.168.1.1 <span class="text-muted float-end">2m ago</span></p>
+                            <p class="mb-2"><i class="fa-solid fa-gear me-2 text-warning"></i> Updated System Uptime Monitor <span class="text-muted float-end">1h ago</span></p>
+                        </div>
+                    </div>
+                </div>
             </div>
         `;
     }
@@ -206,17 +231,6 @@ function showContent(type){
             </div>
         `;
         renderAdminAnalyticsCharts();
-    }
-
-    else if (type === "users" && loggedInUser.role === "Admin") {
-        contentBox.innerHTML = `
-            <div class="card-body" data-aos="fade-up">
-                <h2 class="fw-bold">User Management</h2>
-                <p class="text-muted">Manage all system users.</p>
-                <hr>
-                <div class="alert alert-info mt-4">User management features coming soon!</div>
-            </div>
-        `;
     }
 
     else if (type === "projects" && loggedInUser.role === "Developer") {
@@ -264,9 +278,41 @@ function showContent(type){
     }
     else if(type === "settings"){
         contentBox.innerHTML = `
-            <div class="card-body">
-                <h2>Settings</h2>
-                <p>No settings available now.</p>
+            <div class="card-body" data-aos="fade-up">
+                <h2 class="fw-bold mb-4">System Settings</h2>
+                <div class="row g-4">
+                    <div class="col-lg-6">
+                        <div class="card h-100 border-light shadow-sm">
+                            <div class="card-body">
+                                <h5 class="fw-bold mb-3"><i class="fa-solid fa-bell me-2 text-primary"></i> Notifications</h5>
+                                <div class="form-check form-switch mb-3">
+                                    <input class="form-check-input" type="checkbox" id="notif1" checked>
+                                    <label class="form-check-label" for="notif1">Email alerts for new user registrations</label>
+                                </div>
+                                <div class="form-check form-switch mb-3">
+                                    <input class="form-check-input" type="checkbox" id="notif2" checked>
+                                    <label class="form-check-label" for="notif2">Security & Uptime critical alerts</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card h-100 border-light shadow-sm">
+                            <div class="card-body">
+                                <h5 class="fw-bold mb-3"><i class="fa-solid fa-lock me-2 text-primary"></i> Security</h5>
+                                <div class="form-check form-switch mb-3">
+                                    <input class="form-check-input" type="checkbox" id="sec1" checked>
+                                    <label class="form-check-label" for="sec1">Two-Factor Authentication (2FA)</label>
+                                </div>
+                                <button class="btn btn-outline-primary btn-sm rounded-pill px-4">Change Admin Password</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-4 pt-3 border-top d-flex gap-2">
+                    <button class="btn btn-primary px-4 py-2" onclick="alert('Settings Saved Successfully!')">Save Configuration</button>
+                    <button class="btn btn-light border px-4 py-2">Reset to Default</button>
+                </div>
             </div>
         `;
     }

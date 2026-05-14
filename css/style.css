@@ -435,6 +435,15 @@ body{
     opacity: 0.3;
 }
 
+/* Utility for Soft Badges */
+.bg-soft-primary {
+    background-color: rgba(37, 99, 235, 0.1) !important;
+}
+
+.bg-soft-success {
+    background-color: rgba(16, 185, 129, 0.1) !important;
+}
+
 /* RESPONSIVE */
 
 @media(max-width:991px){
