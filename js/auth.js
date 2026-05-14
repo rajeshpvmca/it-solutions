@@ -16,7 +16,7 @@ if (registerForm) {
       JSON.stringify({ name, role, email, password }),
     );
 
-    window.location.href = "dashboard.html";
+    window.location.href = "index.html";
   });
 }
 

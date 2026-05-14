@@ -236,10 +236,74 @@ function showContent(type){
     else if (type === "projects" && loggedInUser.role === "Developer") {
         contentBox.innerHTML = `
             <div class="card-body" data-aos="fade-up">
-                <h2 class="fw-bold">My Projects</h2>
-                <p class="text-muted">View and manage your assigned projects.</p>
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <div>
+                        <h2 class="fw-bold">My Projects</h2>
+                        <p class="text-muted">Overview of your active development projects.</p>
+                    </div>
+                    <button class="btn btn-primary rounded-pill px-4"><i class="fa-solid fa-plus me-2"></i>New Project</button>
+                </div>
                 <hr>
-                <div class="alert alert-info mt-4">Project listing and details coming soon!</div>
+                <div class="row g-4 mt-2">
+                    <!-- Project 1 -->
+                    <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="card border shadow-sm h-100">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between mb-3">
+                                    <span class="badge bg-soft-primary text-primary px-3 py-2">E-commerce Portal</span>
+                                    <span class="text-muted small">Updated 2h ago</span>
+                                </div>
+                                <h5 class="fw-bold">Cloud Inventory Sync</h5>
+                                <p class="small text-muted">Implementing real-time inventory tracking using WebSockets and Node.js microservices.</p>
+                                <div class="mb-3">
+                                    <div class="d-flex justify-content-between mb-1 small">
+                                        <span>Progress</span>
+                                        <span>75%</span>
+                                    </div>
+                                    <div class="progress" style="height: 6px;">
+                                        <div class="progress-bar bg-primary" role="progressbar" style="width: 75%"></div>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="avatar-group">
+                                        <span class="badge rounded-pill bg-light text-dark border me-1">React</span>
+                                        <span class="badge rounded-pill bg-light text-dark border">Node.js</span>
+                                    </div>
+                                    <a href="#" class="btn btn-link btn-sm text-primary p-0 text-decoration-none fw-bold">View Repo <i class="fa-solid fa-arrow-right ms-1"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 2 -->
+                    <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card border shadow-sm h-100">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between mb-3">
+                                    <span class="badge bg-soft-success text-success px-3 py-2">Internal Tool</span>
+                                    <span class="text-muted small">Updated 1d ago</span>
+                                </div>
+                                <h5 class="fw-bold">AI Analytics Dashboard</h5>
+                                <p class="small text-muted">Building a predictive analysis tool using Python and integrating with the main dashboard.</p>
+                                <div class="mb-3">
+                                    <div class="d-flex justify-content-between mb-1 small">
+                                        <span>Progress</span>
+                                        <span>40%</span>
+                                    </div>
+                                    <div class="progress" style="height: 6px;">
+                                        <div class="progress-bar bg-success" role="progressbar" style="width: 40%"></div>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="avatar-group">
+                                        <span class="badge rounded-pill bg-light text-dark border me-1">Python</span>
+                                        <span class="badge rounded-pill bg-light text-dark border">D3.js</span>
+                                    </div>
+                                    <a href="#" class="btn btn-link btn-sm text-primary p-0 text-decoration-none fw-bold">View Repo <i class="fa-solid fa-arrow-right ms-1"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         `;
     }
@@ -248,9 +312,58 @@ function showContent(type){
         contentBox.innerHTML = `
             <div class="card-body" data-aos="fade-up">
                 <h2 class="fw-bold">My Tasks</h2>
-                <p class="text-muted">Your current and pending tasks.</p>
+                <p class="text-muted">Manage your daily development workflow.</p>
                 <hr>
-                <div class="alert alert-info mt-4">Task management features coming soon!</div>
+                <div class="table-responsive mt-4">
+                    <table class="table table-hover align-middle border-top">
+                        <thead class="bg-light">
+                            <tr>
+                                <th>Task Description</th>
+                                <th>Priority</th>
+                                <th>Deadline</th>
+                                <th class="text-center">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-aos="fade-right" data-aos-delay="100">
+                                <td>
+                                    <div class="fw-bold">Fix Middleware Authentication Bug</div>
+                                    <div class="small text-muted">Sprint 12 - Hotfix</div>
+                                </td>
+                                <td><span class="badge bg-danger rounded-pill px-3">High</span></td>
+                                <td>Today, 5:00 PM</td>
+                                <td class="text-center">
+                                    <button class="btn btn-sm btn-outline-success me-1"><i class="fa-solid fa-check"></i></button>
+                                    <button class="btn btn-sm btn-outline-primary"><i class="fa-solid fa-pen-to-square"></i></button>
+                                </td>
+                            </tr>
+                            <tr data-aos="fade-right" data-aos-delay="200">
+                                <td>
+                                    <div class="fw-bold">Refactor Database Schema</div>
+                                    <div class="small text-muted">Architecture optimization</div>
+                                </td>
+                                <td><span class="badge bg-warning text-dark rounded-pill px-3">Medium</span></td>
+                                <td>Oct 28, 2024</td>
+                                <td class="text-center">
+                                    <button class="btn btn-sm btn-outline-success me-1"><i class="fa-solid fa-check"></i></button>
+                                    <button class="btn btn-sm btn-outline-primary"><i class="fa-solid fa-pen-to-square"></i></button>
+                                </td>
+                            </tr>
+                            <tr data-aos="fade-right" data-aos-delay="300">
+                                <td>
+                                    <div class="fw-bold">Update API Documentation</div>
+                                    <div class="small text-muted">Swagger / OpenDocs</div>
+                                </td>
+                                <td><span class="badge bg-info text-white rounded-pill px-3">Low</span></td>
+                                <td>Nov 02, 2024</td>
+                                <td class="text-center">
+                                    <button class="btn btn-sm btn-outline-success me-1"><i class="fa-solid fa-check"></i></button>
+                                    <button class="btn btn-sm btn-outline-primary"><i class="fa-solid fa-pen-to-square"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         `;
     }
@@ -258,10 +371,90 @@ function showContent(type){
     else if (type === "reports" && loggedInUser.role === "Manager") {
         contentBox.innerHTML = `
             <div class="card-body" data-aos="fade-up">
-                <h2 class="fw-bold">Team Reports</h2>
-                <p class="text-muted">Analyze team performance and progress.</p>
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <div>
+                        <h2 class="fw-bold">Team Performance Reports</h2>
+                        <p class="text-muted">Analytics and efficiency metrics for the current sprint.</p>
+                    </div>
+                    <button class="btn btn-outline-primary btn-sm rounded-pill px-3"><i class="fa-solid fa-file-export me-1"></i> Export PDF</button>
+                </div>
                 <hr>
-                <div class="alert alert-info mt-4">Detailed team reports coming soon!</div>
+                <div class="row g-4">
+                    <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="card bg-soft-primary border-0 p-4 h-100 shadow-sm">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <div>
+                                    <p class="text-muted small mb-1 uppercase fw-bold">Team Velocity</p>
+                                    <h3 class="fw-bold mb-0">94.2%</h3>
+                                    <span class="text-success small fw-bold"><i class="fa-solid fa-caret-up me-1"></i>2.4%</span>
+                                </div>
+                                <div class="fs-2 text-primary opacity-50"><i class="fa-solid fa-gauge-high"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="card bg-soft-success border-0 p-4 h-100 shadow-sm">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <div>
+                                    <p class="text-muted small mb-1 uppercase fw-bold">Tickets Resolved</p>
+                                    <h3 class="fw-bold mb-0">428</h3>
+                                    <span class="text-success small fw-bold"><i class="fa-solid fa-caret-up me-1"></i>12%</span>
+                                </div>
+                                <div class="fs-2 text-success opacity-50"><i class="fa-solid fa-circle-check"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="card bg-soft-danger border-0 p-4 h-100 shadow-sm">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <div>
+                                    <p class="text-muted small mb-1 uppercase fw-bold">Active Blockers</p>
+                                    <h3 class="fw-bold mb-0">5</h3>
+                                    <span class="text-danger small fw-bold"><i class="fa-solid fa-triangle-exclamation me-1"></i>Critical</span>
+                                </div>
+                                <div class="fs-2 text-danger opacity-50"><i class="fa-solid fa-hand"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-5" data-aos="fade-up" data-aos-delay="400">
+                    <h5 class="fw-bold mb-3">Member Workload Distribution</h5>
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle border-top">
+                            <thead>
+                                <tr class="text-muted small uppercase">
+                                    <th>Member</th>
+                                    <th>Role</th>
+                                    <th>Current Workload</th>
+                                    <th>Availability</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><span class="fw-bold">Alice Henderson</span></td>
+                                    <td>Sr. Developer</td>
+                                    <td style="width: 300px;">
+                                        <div class="progress" style="height: 6px;">
+                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 82%"></div>
+                                        </div>
+                                    </td>
+                                    <td><span class="badge bg-soft-success text-success border">Available in 2d</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="fw-bold">Marcus Thorne</span></td>
+                                    <td>Cloud Architect</td>
+                                    <td>
+                                        <div class="progress" style="height: 6px;">
+                                            <div class="progress-bar bg-warning" role="progressbar" style="width: 95%"></div>
+                                        </div>
+                                    </td>
+                                    <td><span class="badge bg-soft-danger text-danger border">Full Capacity</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         `;
     }
@@ -269,10 +462,63 @@ function showContent(type){
     else if (type === "planning" && loggedInUser.role === "Manager") {
         contentBox.innerHTML = `
             <div class="card-body" data-aos="fade-up">
-                <h2 class="fw-bold">Project Planning</h2>
-                <p class="text-muted">Schedule and plan upcoming milestones.</p>
+                <h2 class="fw-bold">Strategic Project Planning</h2>
+                <p class="text-muted">Roadmap overview and resource allocation for Q4.</p>
                 <hr>
-                <div class="alert alert-info mt-4">Planning module coming soon.</div>
+                <div class="row g-4 mt-2">
+                    <div class="col-12" data-aos="fade-left" data-aos-delay="100">
+                        <div class="card border-0 shadow-sm p-4 bg-light">
+                            <h5 class="fw-bold"><i class="fa-solid fa-rocket me-2 text-primary"></i>Next Generation Cloud Migration</h5>
+                            <p class="small text-muted mb-4">Strategic transition of regional databases to high-availability multi-cloud clusters.</p>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span class="small fw-bold">Phase: Resource Allocation</span>
+                                <span class="small text-primary">65% Progress</span>
+                            </div>
+                            <div class="progress" style="height: 10px;">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary" role="progressbar" style="width: 65%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card border shadow-sm p-4 h-100">
+                            <h6 class="fw-bold mb-3">Project Budget Utilization</h6>
+                            <div class="list-group list-group-flush small">
+                                <div class="list-group-item d-flex justify-content-between px-0 bg-transparent">
+                                    <span>Infrastructure Ops</span><span class="fw-bold">$240,000</span>
+                                </div>
+                                <div class="list-group-item d-flex justify-content-between px-0 bg-transparent">
+                                    <span>External Audits</span><span class="fw-bold">$45,000</span>
+                                </div>
+                                <div class="list-group-item d-flex justify-content-between px-0 bg-transparent">
+                                    <span>Contingency Fund</span><span class="fw-bold">$12,000</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+                        <div class="card border shadow-sm p-4 h-100">
+                            <h6 class="fw-bold mb-3">Planning Milestones</h6>
+                            <ul class="list-unstyled small mt-2">
+                                <li class="mb-3 d-flex align-items-center">
+                                    <i class="fa-solid fa-circle text-primary me-3" style="font-size: 8px;"></i>
+                                    <div>
+                                        <div class="fw-bold">Security Audit Initiation</div>
+                                        <div class="text-muted">Deadline: Oct 28, 2024</div>
+                                    </div>
+                                </li>
+                                <li class="mb-3 d-flex align-items-center">
+                                    <i class="fa-solid fa-circle text-muted me-3" style="font-size: 8px;"></i>
+                                    <div>
+                                        <div class="fw-bold">Beta Deployment (Stage 1)</div>
+                                        <div class="text-muted">Expected: Nov 12, 2024</div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
         `;
     }
@@ -310,7 +556,7 @@ function showContent(type){
                     </div>
                 </div>
                 <div class="mt-4 pt-3 border-top d-flex gap-2">
-                    <button class="btn btn-primary px-4 py-2" onclick="alert('Settings Saved Successfully!')">Save Configuration</button>
+                    <button class="btn btn-primary px-4 py-2" >Save Configuration</button>
                     <button class="btn btn-light border px-4 py-2">Reset to Default</button>
                 </div>
             </div>
