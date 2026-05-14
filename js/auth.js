@@ -90,3 +90,19 @@ if(loginForm){
     });
 
 }
+
+// Universal Password Visibility Toggle
+document.querySelectorAll('.toggle-password').forEach(toggle => {
+    toggle.addEventListener('click', function () {
+        const input = this.parentElement.querySelector('input');
+        if (input) {
+            const type = input.getAttribute('type') === 'password' ? 'text' : 'password';
+            input.setAttribute('type', type);
+        
+            // Toggle the eye icon
+            const icon = this.querySelector('i');
+            icon.classList.toggle('fa-eye');
+            icon.classList.toggle('fa-eye-slash');
+        }
+    });
+});
